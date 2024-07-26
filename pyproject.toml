@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reflex-lottiefiles"
-version = "0.0.1"
-description = "Reflex custom component lottiefiles"
+version = "0.0.2"
+description = "Reflex custom component for LottieFiles/dotLottie"
 readme = "README.md"
 license = { text = "Apache-2.0" }
 requires-python = ">=3.8"
@@ -17,10 +17,12 @@ dependencies = ["reflex>=0.4.2"]
 classifiers = ["Development Status :: 4 - Beta"]
 
 [project.urls]
-Homepage = "https://github.com/onexay/reflex-lottiefiles"
+homepage = "https://github.com/onexay/reflex-lottiefiles"
+source = "https://github.com/onexay/reflex-lottiefiles"
 
 [project.optional-dependencies]
 dev = ["build", "twine"]
+
 
 [tool.setuptools.packages.find]
 where = ["custom_components"]
