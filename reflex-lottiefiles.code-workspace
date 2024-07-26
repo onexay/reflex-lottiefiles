@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.fontLigatures": true,
+		"editor.fontFamily": "FiraCode Nerd Font",
+		"files.autoSave": "afterDelay",
+		"ruff.configuration": "ruff.toml"
+	},
+	"extensions": {
+		"recommendations": [
+			"charliermarsh.ruff",
+			"tamasfe.even-better-toml",
+			"redhat.vscode-yaml",
+			"ms-python.python",
+		]
+	}
+}
