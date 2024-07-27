@@ -12,7 +12,16 @@ class State(rx.State):
 
     url: str
 
-    def set_url(self, url: str) -> None:
+    _animation = [
+        'https://lottie.host/e9e08239-be80-4da7-ac13-1b8a8fadd97f/KoxvG1BWSV.json',
+        'https://lottie.host/8fc801ed-6e11-42c1-8dc6-23864d7be6cb/Vb2PR1hOgX.json',
+        'https://lottie.host/a7568da6-1e96-4043-b57c-002a24a3eb86/8zWBqZ30tj.json'
+    ]
+
+    def set_animation_url(self, id: int):
+        self.url = self._animation[id-1]
+
+    def set_url(self, url: str):
         self.url = url
 
     @rx.var
@@ -31,6 +40,7 @@ def config_option(title: str, description: str) -> rx.Component:
         ),
         rx.input(
             placeholder="Enter a URL",
+            default_value=State.get_url,
             type="url",
             width="100%",
             on_change=State.set_url
@@ -73,19 +83,45 @@ def index() -> rx.Component:
                     "Source",
                     "URL to the animation data (.json or .lottie)."
                 ),
-                rx.flex(
-                    rx.cond(
-                        State.get_url is not None,
-                        LottieFiles(
-                            src=State.get_url,
-                            autoplay=True,
-                            loop=False,
-                            play_on_hover=True,
-                            width="25em"
-                        )
+                rx.hstack(
+                    rx.vstack(
+                        rx.text.strong("Examples"),
+                        rx.button(
+                            'Animation 1',
+                            variant="soft",
+                            color_scheme='cyan',
+                            on_click=State.set_animation_url(1),
+                        ),
+                        rx.button(
+                            'Animation 2',
+                            variant="soft",
+                            color_scheme='crimson',
+                            on_click=State.set_animation_url(2),
+                        ),
+                        rx.button(
+                            'Animation 3',
+                            variant="soft",
+                            color_scheme='tomato',
+                            on_click=State.set_animation_url(3),
+                        ),
+                        minWidth="25em",
+                    ),
+                    rx.vstack(
+                        rx.cond(
+                            State.get_url is not None,
+                            LottieFiles(
+                                src=State.get_url,
+                                autoplay=True,
+                                loop=False,
+                                play_on_hover=True,
+                                width="25em"
+                            )
+                        ),
+                        align="start",
+                        justify="start",
                     ),
                     width="100%",
-                    height="100%",
+                    spacing="2"
                 ),
                 align="start",
                 justify="start",
