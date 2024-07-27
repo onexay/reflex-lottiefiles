@@ -88,23 +88,25 @@ def index() -> rx.Component:
                         rx.text.strong("Examples"),
                         rx.button(
                             'Animation 1',
+                            width="8em",
                             variant="soft",
                             color_scheme='cyan',
                             on_click=State.set_animation_url(1),
                         ),
                         rx.button(
                             'Animation 2',
+                            width="8em",
                             variant="soft",
                             color_scheme='crimson',
                             on_click=State.set_animation_url(2),
                         ),
                         rx.button(
                             'Animation 3',
+                            width="8em",
                             variant="soft",
                             color_scheme='tomato',
                             on_click=State.set_animation_url(3),
                         ),
-                        minWidth="25em",
                     ),
                     rx.vstack(
                         rx.cond(
